@@ -1,7 +1,20 @@
 # ResxToJSON
 Net Resource (.resx) to JSON file converter.
 
-# How to use:
+# Available Resources:
 
-place the files in any directory in the application's root folder.
-After execution, each *.resx file will have a JSON in its location.
+### Main Module
+- Navigation with Side Menu
+- Version Control on the Bottom Bar
+- Internal Popup for Message/Warnings
+- External Popup to Call Usercontrol
+
+### Titles Module
+- Title Filter by Debtor Name
+- Datagrid with Title Information
+- Box with Detailed Title Information
+- Double click on the Grid to Edit Title and its Portions
+
+### Reports Module
+- Title Summary Charts
+- Option to Export Excel Reports
