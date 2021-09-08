@@ -7,9 +7,15 @@ namespace ResxToJSON
 {
     class Program
     {
+        static string Divisor = "---------------------";
+
         static void Main(string[] args)
         {
+            int Errors = 0;
             var listFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.resx", SearchOption.AllDirectories).ToList();
+
+            Console.WriteLine($"Arquivos encontrados: {listFiles.Count}");
+            Console.WriteLine(Divisor);
 
             foreach (var file in listFiles)
             {
@@ -36,9 +42,19 @@ namespace ResxToJSON
                     jsonText += "}";
 
                     File.WriteAllText(file.Replace(".resx", ".json"), jsonText);
+                    Console.WriteLine($"{file} - OK");
                 }
-                catch { continue; }
+                catch
+                {
+                    Console.WriteLine($"{file} - Error");
+                    continue;
+                }
             }
+
+            Console.WriteLine(Divisor);
+            Console.WriteLine($"{Errors} Arquivos com falha");
+            Console.WriteLine($"{listFiles.Count - Errors} Arquivos com êxito");
+            Console.Read();
         }
     }
 }
